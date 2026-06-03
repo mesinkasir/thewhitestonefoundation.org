@@ -16,5 +16,5 @@ Whitestone Publications does not retain copyright to its publications. It automa
   {% logoItem "https://jcrt.org", "/images/wp-content/uploads/2021/08/JCRT-Logo.jpg", "JCRT" %}
   {% logoItem "http://esthesis.org/", "/images/esthesis.png", "esthesis" %}
   {% logoItem "https://thenewpolis.com/", "/images/wp-content/uploads/2021/08/New-Polis-logo.png", "The New Polis" %}
-  {% logoItem "https://journal.thenewpolis.com/", "/images/the-new-polis-journal.png", "The New Polis Journal" %}
+  {% logoItem "https://journal.thenewpolis.com/", "/images/the-new-polis2.png", "The New Polis Journal" %}
 {% endlogoContainer %}
