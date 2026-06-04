@@ -5,17 +5,18 @@ tags:
 image: /images/wp-content/uploads/2021/08/Whitestone-logo.png
 permalink: /mission/
 ---
+The Whitestone Foundation is an independent, non-profit organization dedicated to fostering critical thought for the public interest.
 
-**Vision**
+## Vision
+Knowledge has engineered the modern world. Artificial intelligence is now rewriting the master plan. The Whitestone Foundation is where new projects of knowledge production are incubated and nurtured, and where a new generation of critical thought leaders poised to shape the future of education, governance, and civic life gather, collaborate, and thrive together.
 
-We strive to cultivate a community that fosters critical discourse surrounding academic research, bridging the divide between academic writing and broader, non-academic publics. We aim to foster an environment for vigorous dialogue among different constituencies as well as to educate our own selves routinely in the realms of arts, religion, philosophy, politics, and culture. 
+## Mission
+Over a quarter of a century ago, Whitestone pioneered open-access electronic publishing and conferencing at the dawn of the digital age and the advent of the knowledge economy. Now that the AI revolution is turning topsy-turvy the knowledge economy itself, along with all learning institutions and pathways for professional and career development, we stand ready to venture forth as the vanguard for whoever will renovate the thoughtscapes of the emergent era. 
+Our journals, seminars, symposia, institutes, and consultations converge around a single compelling question —what does it mean to know something, teach something to somebody, and flourish as conceptual pacesetters in a world where conventional forms and strategies of knowledge creation and globalization have gone wild? 
 
-**Mission**
+## Community
+Instead of easy answers, we offer something rarer  — the critical thought frameworks, the historical depth, the critical rigor, and the kind of creative intellectual community needed to develop your own questions and answers — and to act on them. 
 
-Our three electronic publications – *The Journal for Cultural and Religious Theory, Esthesis, *and *The New Polis* – constitute a working consortium of academic journals designed to allow religious, political, cultural, and artistic thought and theory to become accessible to the public through informed and researched articles, peer-reviewed essays, engaging discussions, conferences, webinars, and educational events. The emphasis on a global context for the implementation of our mission creates a welcoming space for academics, students, readers, and thought leaders to come together and expand their world views, while nurturing an environment favorable to the interchange of perspectives on contemporary issues and trends.
+For those like-minded individuals with the vision and the resources to invest in ideas that ultimately matter, Whitestone is where ideas that once seemed impossible become highly probable.
 
-We utilize whatever resources are available to us to advance, support, and disseminate the most innovative theories and ideas, while simultaneously developing ongoing communication and mutual accountability between a variety of audiences.
 
-Affirming a commitment to open access publishing within an interdisciplinary setting, our efforts are tailored to sustain a thriving online intellectual community that brings its conversations directly to the people. Such an intellectual community is devised to remain accessible, collaborative, and knowledgeable, and to build on our deeper commonalities.
-
-We commit ourselves to profound historical and trans-generational analyses of current problems, including critical attention to how our own discourse discloses our own limitations in our modes of thinking.
