@@ -9,9 +9,9 @@ permalink: /about/
   
 ## About The Whitestone Foundation
 
-The Whitestone Foundation, dba Whitestone Publications, is a Colorado-registered 501(c)(3) nonprofit corporation dedicated to open-access scholarship, critical inquiry, and public intellectual engagement.
+The Whitestone Foundation, dba Whitestone Publications, is a Colorado-registered 501\(c\)\(3\) nonprofit corporation dedicated to open-access scholarship, critical inquiry, and public intellectual engagement.
 
-Whitestone Publications publishes two professional open-access e-journals: [The New Polis](#) and [The Journal for Cultural and Religious Theory](https://jcrt.org). Together, these publications support a global network of scholars, writers, and public thinkers committed to rigorous research, cultural analysis, and critical reflection on the urgent questions shaping our world.
+Whitestone Publications publishes two professional open-access e-journals: [The New Polis](https://thenewpolis.com/) and [The Journal for Cultural and Religious Theory](https://jcrt.org). Together, these publications support a global network of scholars, writers, and public thinkers committed to rigorous research, cultural analysis, and critical reflection on the urgent questions shaping our world.
 
 ## Transformative Publications
 
