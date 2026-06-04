@@ -5,6 +5,7 @@ tags:
 permalink: /about/
 ---
 ## Forging the Future of Critical Thought for The 21<sup>st</sup> Century
+<em>The Whitestone foundation has for a quarter century been engaged collaboeratively with faculty, staff, and students at leading international and domestic colleges, universities, collaborative research centers.</em>
   
 ## About The Whitestone Foundation
 
@@ -23,3 +24,4 @@ The New Polis extends this mission by fostering timely conversations about socie
 The Whitestone Foundation is committed to cultivating scholarship for the future. Through its journals, webinars, seminars, and public programs—including Critical Conversations and Difficult Discussions—Whitestone supports thoughtful dialogue across disciplines, institutions, and communities.
 
 At the heart of Whitestone’s work is a commitment to building a global network of scholars dedicated to the evolution of scholarship, the practice of critical thinking, and the creation of intellectual resources for a changing world.
+
