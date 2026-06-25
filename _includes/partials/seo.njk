@@ -36,6 +36,7 @@
 />
 <meta property="dc:creator" content="{{ metadata.title }}" />
 {% set dcPublisher = metadata.author.name or metadata.author or metadata.title %}
+{% set dcPublisher = metadata.publisher or "Whitestone Publications" %}
 {% set dcDescription = description or metadata.description %}
 {% set pageTags = tags or [] %}
 {% set pageDate = date or page.date %}
@@ -56,6 +57,27 @@
 {% endfor %}
 {% if metadata.metasocial.mastodon %}
 <meta name="fediverse:creator" content="{{ metadata.metasocial.mastodon }}" />
+{% endif %}
+{% set standardSiteEnabled = metadata.standard_site and metadata.standard_site.enabled %}
+{% set standardSitePublicationAtUri = metadata.standard_site.publication_at_uri if standardSiteEnabled else "" %}
+{% set standardSiteDocumentAtUri = "" %}
+{% if standardSiteEnabled and standardSiteRecords and page and page.url %}
+  {% set standardSiteDocumentAtUri = standardSiteRecords[page.url] %}
+{% endif %}
+{% if standardSiteDocumentAtUri %}
+<link rel="site.standard.document" href="{{ standardSiteDocumentAtUri }}" />
+{% endif %}
+{% if standardSitePublicationAtUri %}
+<link rel="site.standard.publication" href="{{ standardSitePublicationAtUri }}" />
+{% endif %}
+{% if pageDate and page.url and page.url != "/" %}
+<meta property="zotero:itemType" content="blogPost" />
+<meta name="prism.genre" content="blogentry" />
+<meta name="prism.publicationName" content="{{ metadata.title }}" />
+<meta name="citation_author" content="{{ author or metadata.author.name or metadata.title }}" />
+<meta name="citation_publication_date" content="{{ pageDate | isoDate }}" />
+<meta name="citation_public_url" content="{{ page.url | absUrl(metadata.url | baseUrl) }}" />
+<meta name="citation_language" content="{{ metadata.language or 'en' }}" />
 {% endif %}
 <meta content="{{ metadata.metasocial.twitter }}" name="twitter:site" />
 <meta property="og:type" content="website" />
@@ -98,8 +120,4 @@
 <meta name="generator" content="{{ eleventy.generator }}" />
 <link href="/css/bs.css" rel="stylesheet"/>
 <link href="/css/style.css" rel="stylesheet"/>
-{% include "schema-website.njk" %}
-{% include "schema-organization.njk" %}
-{% if page.url and page.url != "/" %}
-{% include "schema-breadcrumb.njk" %}
-{% endif %}
+{% include "knowledge-graph.njk" %}

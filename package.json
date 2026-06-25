@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy && node scripts/build-pagefind-import.mjs && node scripts/run-pagefind.mjs && node scripts/build-metasearch-index.mjs && node scripts/build-semantic-vectors.mjs",
+    "sequoia:stage": "node scripts/build-sequoia-content.mjs",
+    "build": "npm run sequoia:stage && rm -rf _site && npx @11ty/eleventy && node scripts/build-pagefind-import.mjs && node scripts/run-pagefind.mjs && node scripts/build-metasearch-index.mjs && node scripts/build-semantic-vectors.mjs",
     "refresh:metasearch": "node scripts/update-allsites-canonical.mjs"
   },
   "dependencies": {

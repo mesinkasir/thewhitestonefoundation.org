@@ -28,6 +28,7 @@ pnpm-debug.log*
 # Build artifacts
 /dist/
 .cache/
+.sequoia/content/
 
 # Editor
 .vscode/
