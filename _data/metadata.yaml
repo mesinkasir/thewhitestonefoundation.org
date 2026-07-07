@@ -1,7 +1,7 @@
 title: "The Whitestone Foundation"
 description: "Whitestone Publications and programs in critical theory, public scholarship, and higher education."
-url: "https://thewhitestonefoundation.org"
-#url: "http://localhost:8080"
+#url: "https://thewhitestonefoundation.org"
+url: "http://localhost:8080"
 contact: "whitestone.pubs@gmail.com"
 image: "/images/whitestone-logo.png"
 language: "en"
@@ -79,22 +79,45 @@ sidebar:
       url: "/contact/"
       is_dropdown: false
 
+publication: 
+  programs:
+  - title: "JCRT"
+    image: "/images/wp-content/uploads/2021/08/JCRT-Logo.jpg"
+    description: "The Journal of Contemporary Religion and Theory (JCRT) is a peer-reviewed academic journal that explores the intersections of religion, culture, and theory. It publishes original research articles, critical essays, and book reviews that contribute to the understanding of contemporary religious phenomena."
+    link_title: "Read Journal"
+    link_url: "https://jcrt.org/"
+  - title: "The New Polis"
+    image: "/images/wp-content/uploads/2021/08/New-Polis-logo.png"
+    description: "The New Polis is a platform for critical engagement with contemporary issues at the intersection of religion, culture, and theory."
+    link_title: "Explore"
+    link_url: "https://thenewpolis.com/"
+  - title: "Journal New Polish"
+    image: "/images/the-new-polis2.png"
+    description: "The Journal of New Polish Studies is a peer-reviewed academic journal that publishes research on the culture, history, and society of Poland and the Polish diaspora."
+    link_title: "Join Now"
+    link_url: "https://journal.thenewpolis.com/"
+  - title: "Esthesis"
+    image: "/images/esthesis-logo-393x320-clean.png"
+    description: "Esthesis is a digital publication that explores the intersections of art, culture, and theory."
+    link_title: "Learn More"
+    link_url: "https://esthesis.org/"
+
 social: 
   - label: "Twitter"
     url: "https://twitter.com/jourculreltheor"
-    icon: "fa-brands fa-twitter"
+    icon: "ph-bold ph-twitter-logo"
   - label: "Facebook"
-    url: "hhttps://www.facebook.com/religioustheory"
-    icon: "fa-brands fa-facebook"
+    url: "https://www.facebook.com/religioustheory"
+    icon: "ph-bold ph-facebook-logo"
   - label: "Instagram"
     url: "https://www.instagram.com/JCRT_DU1"
-    icon: "fa-brands fa-instagram"
+    icon: "ph-bold ph-instagram-logo"
   - label: "Bluesky"
     url: "https://bsky.app/profile/jcrt.org"
-    icon: "fa-brands fa-bluesky"
+    icon: "ph-bold ph-planet"
   - label: "Mastodon"
     url: "https://mastodon.social/@jcrt"
-    icon: "fa-brands fa-mastodon"  
+    icon: "ph-bold ph-mastodon-logo"
 
 widget: 
   tableofcontent: "Table of Contents"
@@ -108,7 +131,7 @@ widget:
 
 footer:
   year_start: 2018
-  text: "Copyright The Whitestone Foundation dba Whitestone Publications. All Rights Reserved."
+  text: "The Whitestone Foundation, dba Whitestone Publications, is a Boulder, Colorado-registered 501(c)(3) non-profit corporation dedicated to fostering critical thought for the public interest."
   info: "A WHITESTONE FOUNDATION PUBLICATION"
   url: "https://thewhitestonefoundation.org/"
   publications:
@@ -126,3 +149,6 @@ footer:
   built_with:
     label: "built with"
     url: "https://11ty.dev"
+  rss:
+    label: "RSS"
+    url: "https://phosphoricons.com/?q=rss"

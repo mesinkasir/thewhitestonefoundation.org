@@ -141,6 +141,50 @@ export default function (eleventyConfig) {
     return words.slice(0, count).join(" ");
   });
 
+eleventyConfig.addFilter("concat", function(arr, value) {
+  if (!Array.isArray(arr)) return [value];
+  return arr.concat(value);
+});
+
+eleventyConfig.addFilter("unique", function(arr) {
+  if (!Array.isArray(arr)) return [];
+  return [...new Set(arr)];
+});
+
+eleventyConfig.addFilter("slug", function(str) {
+  if (!str) return "";
+  return String(str)
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+});
+
+eleventyConfig.addCollection("categoryList", (collectionApi) => {
+  const posts = collectionApi.getFilteredByGlob("content/posts/**/*.md");
+  const categories = new Set();
+  posts.forEach(post => {
+    const cats = post.data?.categories || [];
+    cats.forEach(cat => categories.add(cat));
+  });
+  return Array.from(categories).sort();
+});
+
+eleventyConfig.addCollection("postsByCategory", (collectionApi) => {
+  const posts = collectionApi.getFilteredByGlob("content/posts/**/*.md");
+  const map = new Map();
+  posts.forEach(post => {
+    const cats = post.data?.categories || [];
+    cats.forEach(cat => {
+      if (!map.has(cat)) map.set(cat, []);
+      map.get(cat).push(post);
+    });
+  });
+  return map;
+});
+
   return {
     dir: {
       input: "content",

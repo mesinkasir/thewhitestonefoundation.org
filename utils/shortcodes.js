@@ -9,11 +9,11 @@ export function registerShortcodes(eleventyConfig) {
     if (!img) return ""; 
 
     return `
-      <div class="col-6 col-md-3 d-flex">
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex">
         <a href="${url}" class="logo-card" target="_blank" rel="noopener">
           <div class="logo-box">
-            <img src="${img}"  alt="${label}" loading="lazy">
-          </div>
+    <img src="${img}" class="img-fluid" alt="${label}" loading="lazy" style="max-width:100%; max-height:100%; width:auto; height:auto;">
+</div>
           <span class="logo-text">${label}</span>
         </a>
       </div>`.trim();

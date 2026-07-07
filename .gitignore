@@ -36,3 +36,5 @@ pnpm-debug.log*
 
 # Misc
 *.log
+
+RAW/
