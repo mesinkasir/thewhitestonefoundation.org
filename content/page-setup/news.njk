@@ -23,6 +23,30 @@ eleventyComputed:
         </div>
     </div><hr/>
 
+    <!-- CATEGORIES FILTER -->
+    {% set allCategories = [] %}
+    {% for post in collections.posts %}
+        {% if post.data.categories %}
+            {% for cat in post.data.categories %}
+                {% set allCategories = allCategories | concat(cat) %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    {% set uniqueCategories = allCategories | unique %}
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex flex-wrap gap-2">
+                <a href="/news/" class="btn btn-outline-light btn-sm">All</a>
+                {% for cat in uniqueCategories %}
+                <a href="/{{ cat | slug }}/" class="btn btn-outline-light btn-sm">
+                    {{ cat }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <div class="row g-5 mt-2">
         {% for p in news %}
         <div class="col-md-6 col-lg-4">
@@ -43,6 +67,16 @@ eleventyComputed:
                         {{ p.data.description or p.content | stripHtml | truncate(150) }}
                     </p>
                 </a>
+                <!-- CATEGORIES BADGE LINK -->
+                {% if p.data.categories %}
+                <div class="d-flex flex-wrap gap-1 mt-2">
+                    {% for cat in p.data.categories %}
+                    <a href="/{{ cat | slug }}/" >
+                        {{ cat }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </article>
         </div>
         {% else %}

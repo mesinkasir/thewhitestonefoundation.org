@@ -1,0 +1,75 @@
+---
+layout: base.njk
+---
+
+<section class="container">
+  <div class="row g-5 mb-5 pt-4 align-items-center">
+    <h1 class="col-md-4 display-5 fw-bold" style="font-family: 'Tenor Sans', serif;">{{ title }}</h1>
+    <div class="col-md-8 lead">
+      <p class="mb-0">{{ description }}</p>
+    </div>
+  </div>
+  <hr/>
+
+  {% if image %}
+  <div class="post-cover-container mb-5">
+    <img src="{{ image }}" class="img-fluid w-100" alt="{{ title }}" style="max-height: 600px; object-fit: cover;">
+  </div>
+  {% endif %}
+
+<div class="row g-4 mt-2">
+  <section class="programs-section py-4">
+    <div class="row g-3">
+      {% for program in metadata.publication.programs %}
+      <div class="col-6 col-md-6 col-12">
+        <div class="program-card p-3 text-center border rounded h-100 d-flex flex-column">
+          <img class="img-fluid mb-3 program-card-img" src="{{ program.image }}" alt="{{ program.title }}">
+          <h3 class="h5">{{ program.title }}</h3>
+          <p class="mb-0 text-muted flex-grow-1">{{ program.description }}</p>
+          <a href="{{ program.link_url }}" class="btn btn-lg mt-3 btn-dark rounded-0">
+            {{ program.link_title }}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+</section>
+
+<style>
+  .publication-card {
+    transition: var(--transition);
+  }
+  .publication-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(92, 225, 230, 0.08);
+  }
+  .publication-card .btn-outline-light {
+    transition: var(--transition);
+  }
+  .publication-card .btn-outline-light:hover {
+    background: var(--accent);
+    color: #000000;
+    border-color: var(--accent);
+  }
+  [data-theme="light"] .publication-card .btn-outline-light:hover {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+  }
+  @media (max-width: 768px) {
+    .publication-card h3 {
+      font-size: 0.9rem;
+    }
+    .publication-card p {
+      font-size: 0.7rem;
+    }
+    .publication-card .btn-sm {
+      font-size: 0.6rem;
+      padding: 0.25rem 0.75rem;
+    }
+  }
+</style>
