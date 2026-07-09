@@ -74,7 +74,7 @@ programsSection:
 programs:
   - icon: globe
     title: "Wild Globalization"
-    description: "A pan-historical exploration of the six wild forces - Ecology, Culture, Technology, Economy, and Governance - that drive and produce our hyper-globalizing civilization. It's wild."
+    description: "A pan-historical exploration of the six wild forces - ecology, culture, technology, economy, and governance - that drive and produce our hyper-globalizing civilization. It's wild."
     link_title: "Explore Wild Globalization"
     link_url: "https://wildglobalization.com/"
   - icon: brain
