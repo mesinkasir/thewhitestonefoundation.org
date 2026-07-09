@@ -6,18 +6,18 @@ url: "https://thewhitestonefoundation.org"
 #url: "http://localhost:8080"
 contact: "hello@thewhitestonefoundation.org"
 support: "https://givebutter.com/whitestone"
-image: "/images/w.webp"
+image: "/images/whitestone-logo-square-transparent.svg"
 image_alt: "A white and green diamond with a white 'green' in the center, representing The Whitestone Foundation."
 language: "en"
 defaultLanguage: "en"
 locale: en_US
-favicon: "/images/w.webp"
+favicon: "/images/favicon/favicon.svg"
 noindex: false
 
 brand:
   full_name: "The Whitestone Foundation"
   short_name: "The Whitestone Foundation"
-  mark: "/images/w.webp"
+  mark: "/images/whitestone-logo-square-transparent.svg"
   home_url: "/"
 
 routes:
