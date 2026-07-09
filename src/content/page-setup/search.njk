@@ -9,9 +9,12 @@ permalink: /search/
     <p class="eyebrow">Search</p>
     <h1>Search the Site</h1>
   </header>
-  <div id="search"></div>
-  <p id="search-status" class="search-help" hidden>Search index not found yet. Run `npm run build` to generate Pagefind.</p>
+  <pagefind-input autofocus></pagefind-input>
+  <pagefind-summary></pagefind-summary>
+  <pagefind-results show-images></pagefind-results>
+  <noscript><p class="search-help">Search requires JavaScript.</p></noscript>
 </section>
 
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-<script src="/pagefind/pagefind-ui.js"></script>
+{# Load eagerly here; the idle-time lazy loader in assets/js/index.js would delay search on its own page. Duplicate loads are harmless (same-URL module runs once). #}
+<link rel="stylesheet" href="/pagefind/pagefind-component-ui.css">
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>

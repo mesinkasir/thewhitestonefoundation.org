@@ -149,25 +149,5 @@
     } else {
       revealItems.forEach((item) => item.classList.add('is-visible'));
     }
-
-    const search = document.getElementById('search');
-    if (search) {
-      const status = document.getElementById('search-status');
-      if (typeof PagefindUI === 'undefined') {
-        if (status) status.hidden = false;
-        return;
-      }
-      new PagefindUI({
-        element: '#search',
-        showImages: false,
-        processResult: (result) => {
-          const meta = result?.meta || {};
-          if (meta.source_url) result.url = meta.source_url;
-          if (meta.title) result.title = meta.site ? `${meta.title} | ${meta.site}` : meta.title;
-          if (meta.description) result.excerpt = meta.description;
-          return result;
-        }
-      });
-    }
   });
 })();
