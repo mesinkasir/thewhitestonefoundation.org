@@ -1,0 +1,27 @@
+<section id="publications" class="section section--dark section--angled">
+  <div class="diagonal-top"></div>
+  <div class="site-container">
+    <div class="section-heading reveal">
+      <p class="eyebrow eyebrow--light">{{ publications.section.eyebrow }}</p>
+      <h2>
+        {{ publications.section.title }} <span>{{ publications.section.titleSpan }}</span>
+      </h2>
+    </div>
+    <div class="publication-grid">
+      {% for pub in publications.list %}
+        <a href="{{ pub.url }}" class="publication-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="publication-card__image">
+            <img src="{{ pub.image }}" alt="{{ pub.title }}">
+            <div></div>
+          </div>
+          <div class="publication-card__body">
+            <p>{{ pub.abbr }}</p>
+            <h3>{{ pub.title }}</h3>
+            <span>{{ pub.description | safe }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="diagonal-bottom"></div>
+</section>

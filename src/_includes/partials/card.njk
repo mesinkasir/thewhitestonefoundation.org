@@ -1,0 +1,64 @@
+{% macro article(item, metadata) %}
+  <article class="article-card">
+    <a href="{{ item.url }}">
+      <div class="article-card__image">
+        <img src="{{ item.data.image or metadata.image }}" alt="{{ item.data.title }}" loading="lazy">
+      </div>
+      <p class="card-meta">
+        {{ item.data.categories[0] if item.data.categories else metadata.labels.general }} &bull; {{ item.date | readableDate }}
+      </p>
+      <h2>{{ item.data.title }}</h2>
+      <p>{{ item.data.description or item.content | stripHtml | truncate(150) }}</p>
+    </a>
+  </article>
+{% endmacro %}
+
+{% macro person(member, metadata, options = {}) %}
+  {% if options.clickable %}
+    <a href="{{ member.url }}" class="team-card team-card--clickable h-card u-url{% if options.reveal %} reveal{% endif %}">
+      {% if options.corners %}
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-br"></div>
+      {% endif %}
+      <div class="team-card__image{% if options.square %} team-card__image--square{% endif %}">
+        <img class="u-photo" src="{{ member.data.photo or metadata.image }}" alt="{{ member.data.name }}" loading="lazy">
+        {% if options.badge %}
+          <span class="role-badge{% if options.alumni %} role-badge--alumni{% endif %}">{{ options.badge }}</span>
+        {% endif %}
+      </div>
+      <div class="team-card__body">
+        <p class="card-meta p-role">{{ member.data.role }}</p>
+        {% if options.heading == "h2" %}
+          <h2 class="p-name">{{ member.data.name }}</h2>
+        {% else %}
+          <h3 class="p-name">{{ member.data.name }}</h3>
+        {% endif %}
+        <p class="team-card__excerpt p-note">{{ member.data.description | md | stripHtml | truncate(options.truncate or 190) }}</p>
+        <span class="text-link">{{ metadata.labels.view_profile }} <span aria-hidden="true">{{ metadata.symbols.external }}</span></span>
+      </div>
+    </a>
+  {% else %}
+    <article class="team-card h-card{% if options.reveal %} reveal{% endif %}">
+      {% if options.corners %}
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-br"></div>
+      {% endif %}
+      <div class="team-card__image{% if options.square %} team-card__image--square{% endif %}">
+        <img class="u-photo" src="{{ member.data.photo or metadata.image }}" alt="{{ member.data.name }}" loading="lazy">
+        {% if options.badge %}
+          <span class="role-badge{% if options.alumni %} role-badge--alumni{% endif %}">{{ options.badge }}</span>
+        {% endif %}
+      </div>
+      <div class="team-card__body">
+        <p class="card-meta p-role">{{ member.data.role }}</p>
+        {% if options.heading == "h2" %}
+          <h2 class="p-name">{{ member.data.name }}</h2>
+        {% else %}
+          <h3 class="p-name">{{ member.data.name }}</h3>
+        {% endif %}
+        <p class="team-card__excerpt p-note">{{ member.data.description | md | stripHtml | truncate(options.truncate or 190) }}</p>
+        <a href="{{ member.url }}" class="text-link u-url">{{ metadata.labels.view_profile }} <span aria-hidden="true">{{ metadata.symbols.external }}</span></a>
+      </div>
+    </article>
+  {% endif %}
+{% endmacro %}

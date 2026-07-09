@@ -1,0 +1,43 @@
+{% extends "base.njk" %}
+{% import "partials/breadcrumb.njk" as bc %}
+
+{% block content %}
+<article class="page-shell team-profile h-card">
+  {{ bc.render(page, name, metadata, { "name": "People", "url": metadata.routes.people }) }}
+  <header class="team-profile__header">
+    <div class="team-profile__image">
+      <img class="u-photo" src="{{ photo or metadata.image }}" alt="{{ name }}" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow p-role">{{ role }}</p>
+      <h1 class="p-name">{{ name }}</h1>
+      <a class="u-url visually-hidden" href="{{ page.url | absUrl }}">{{ name }}</a>
+      {% if email or orcid %}
+        <div class="team-profile__contacts" aria-label="{{ name }} contact links">
+          {% if email %}
+            {% set emailLabel = (name | firstName) + "'s email" %}
+            <a href="#" class="team-profile__contact-link u-email" data-email-link data-email="{{ email | base64 }}" aria-label="{{ emailLabel }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" role="img" aria-label="{{ emailLabel }}"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg>
+              <span data-email-text></span>
+            </a>
+          {% endif %}
+          {% if orcid %}
+            <a href="{{ orcid | orcidUrl }}" class="team-profile__contact-link team-profile__contact-link--text u-url" target="_blank" rel="noopener noreferrer" aria-label="{{ name }} ORCID">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="ORCID iD"><path fill="#A6CE39" d="M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z"/><g fill="#FFFFFF"><path d="M86.3,186.2H70.9V79.1h15.4v48.4V186.2z"/><path d="M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z"/><path d="M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z"/></g></svg>
+              <span>{{ orcid | orcidId }}</span>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      <a href="{{ metadata.routes.people }}" class="text-link">{{ metadata.labels.back_to_people }} <span aria-hidden="true">{{ metadata.symbols.forward }}</span></a>
+    </div>
+  </header>
+
+  {% if description %}
+    <p class="p-note visually-hidden">{{ description }}</p>
+  {% endif %}
+  <div class="prose-green">
+    {{ content | safe }}
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,24 @@
+{# Breadcrumb: accessible <nav> + BreadcrumbList JSON-LD (schema.org) for rich results.
+   render(page, current, metadata, parent)
+     page     – the page object (uses page.url); skipped on the homepage
+     current  – name of the current page (last crumb, not linked)
+     metadata – site metadata (for absolute URLs)
+     parent   – optional { name, url } inserted between Home and current #}
+{% macro render(page, current, metadata, parent) %}
+{%- if page.url and page.url != "/" -%}
+{%- set trail = [{ "name": "Home", "url": "/" }] -%}
+{%- if parent -%}{%- set trail = trail.concat([parent]) -%}{%- endif -%}
+{%- set trail = trail.concat([{ "name": current, "url": page.url }]) -%}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    {%- for c in trail %}
+    <li class="breadcrumb__item">
+      {%- if loop.last %}<span aria-current="page">{{ c.name }}</span>
+      {%- else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif -%}
+    </li>
+    {%- endfor %}
+  </ol>
+</nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{%- for c in trail -%}{"@type":"ListItem","position":{{ loop.index }},"name":{{ c.name | dump | safe }},"item":{{ (c.url | absUrl(metadata.url)) | dump | safe }}}{%- if not loop.last %},{% endif -%}{%- endfor -%}]}</script>
+{%- endif -%}
+{% endmacro %}

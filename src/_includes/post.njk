@@ -1,0 +1,95 @@
+{% extends "base.njk" %}
+{% import "partials/breadcrumb.njk" as bc %}
+
+{% block content %}
+{% set postUrl = page.url | absUrl %}
+{% set blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description or "",
+  "image": (image or metadata.image) | absUrl,
+  "datePublished": date | isoDate,
+  "dateModified": (updated or date) | isoDate,
+  "author": { "@type": "Person", "name": author | titleCaseTerm },
+  "publisher": { "@id": "https://thewhitestonefoundation.org/#organization" },
+  "isPartOf": { "@id": "https://thewhitestonefoundation.org/#website" },
+  "mainEntityOfPage": postUrl,
+  "url": postUrl
+} %}
+<script type="application/ld+json">{{ blogPosting | jsonLd | safe }}</script>
+<article class="page-shell h-entry">
+  {{ bc.render(page, title, metadata, { "name": metadata.labels.news, "url": metadata.routes.news }) }}
+  <header class="page-header">
+    <p class="eyebrow">
+      {% if categories and categories.length %}<span class="p-category">{{ categories[0] }}</span>{% else %}{{ metadata.labels.news }}{% endif %}
+      {% if date %} {{ metadata.symbols.separator }} <time class="dt-published" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>{% endif %}
+    </p>
+    <h1 class="p-name">{{ title }}</h1>
+    <a class="u-url visually-hidden" href="{{ page.url | absUrl }}">{{ title }}</a>
+    {% if description %}<p class="p-summary">{{ description }}</p>{% endif %}
+    <div class="post-meta post-meta--full" aria-label="Post metadata">
+      {% if author %}
+        <span>By <span class="p-author h-card">{{ author | titleCaseTerm }}</span></span>
+      {% endif %}
+      {% if categories and categories.length %}
+        {% for category in categories %}
+          <span class="p-category">{{ category | titleCaseTerm }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </header>
+  {% if image %}
+    <img class="feature-image u-photo" src="{{ image }}" alt="{{ title }}" loading="lazy">
+  {% endif %}
+  <div class="prose-green e-content">
+    {{ content | markExternalLinks | safe }}
+  </div>
+
+  <footer class="post-taxonomy">
+    {% if categories and categories.length %}
+      <section class="taxonomy-panel">
+        <h2>Categories</h2>
+        <div class="tag-cloud">
+          {% for category in categories %}
+            <span class="tag-pill">{{ category | titleCaseTerm }}</span>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="taxonomy-panel">
+      <h2>Posts</h2>
+      <div class="link-stack">
+        {% if collections.posts.length > 1 %}
+          {% set recentPosts = collections.posts | reverse %}
+          {% for post in recentPosts %}
+            {% if post.url != page.url %}
+              <a href="{{ post.url }}">
+                <span>{{ post.data.title }}</span>
+                <small>{{ post.date | readableDate }}</small>
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <p>No additional posts found.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    {% if collections.postAuthors and collections.postAuthors.length %}
+      <section class="taxonomy-panel">
+        <h2>Authors</h2>
+        <div class="tag-cloud">
+          {% for postAuthor in collections.postAuthors %}
+            <span class="tag-pill">
+              {{ postAuthor.name | titleCaseTerm }}
+              <span>{{ postAuthor.count }}</span>
+            </span>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </footer>
+</article>
+{% endblock %}

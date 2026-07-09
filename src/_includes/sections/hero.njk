@@ -1,0 +1,30 @@
+<section class="hero-section">
+  <div class="hero-media">
+    <div
+      class="hero-image hero-clip"
+      role="img"
+      aria-label="{{ hero.alt }}"
+      style="background-image: url('{{ hero.image }}')"
+    ></div>
+    <div class="hero-clip hero-overlay"></div>
+  </div>
+
+  <div class="site-container hero-content reveal is-visible">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow eyebrow--light">{{ hero.info }}</p>
+        <h1>{{ hero.title | lineBreaks | safe }}</h1>
+      </div>
+      <div class="hero-copy">
+        <h2>{{ hero.sub_title | safe }}</h2>
+        <div>
+          {{ hero.text | md | safe }}
+        </div>
+      </div>
+    </div>
+    <a href="{{ hero.button.url }}" class="scroll-link">
+      <span>{{ hero.button.text }}</span>
+      <span class="scroll-arrow" aria-hidden="true">↓</span>
+    </a>
+  </div>
+</section>

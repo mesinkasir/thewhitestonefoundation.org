@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: "Authors"
+description: "Browse Whitestone articles by author."
+permalink: /authors/
+---
+{% import "partials/breadcrumb.njk" as bc %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">Browse</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </header>
+
+  <div class="tag-cloud">
+    {% for author in collections.postAuthors %}
+      <a class="tag-pill" href="/authors/{{ author.slug }}/">
+        {{ author.name | titleCaseTerm }}
+        <span>{{ author.count }}</span>
+      </a>
+    {% else %}
+      <p>No authors yet.</p>
+    {% endfor %}
+  </div>
+</section>

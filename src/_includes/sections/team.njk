@@ -1,0 +1,44 @@
+{% import "partials/card.njk" as cards %}
+<section id="team" class="section section--team section--border">
+  <div class="site-container">
+    <div class="split-heading split-heading--compact reveal">
+      <div>
+        <p class="eyebrow">{{ teamSection.eyebrow }}</p>
+        <h2>
+          {{ teamSection.title }} <span>{{ teamSection.titleSpan }}</span>
+        </h2>
+      </div>
+      <div class="section-copy">
+        <p>{{ teamSection.description | safe }}</p>
+      </div>
+    </div>
+
+    <div class="people-grid">
+      {% for member in collections.teamActive %}
+        {% set role = metadata.teamLabels.editorial %}
+        {% if member.data.role | containsAny(metadata.teamLabels.leadershipKeywords) %}
+          {% set role = metadata.teamLabels.leadership %}
+        {% endif %}
+        {{ cards.person(member, metadata, { reveal: true, corners: true, badge: role, clickable: true }) }}
+      {% endfor %}
+    </div>
+
+    {% if collections.teamAlumni.length %}
+      <div class="alumni-band">
+        <div class="alumni-intro reveal">
+          <h3>{{ metadata.teamLabels.alumni }}</h3>
+          <p>{{ metadata.teamLabels.alumniIntro }}</p>
+        </div>
+        <div class="people-grid">
+          {% for member in collections.teamAlumni %}
+            {{ cards.person(member, metadata, { reveal: true, badge: metadata.teamLabels.alumni, alumni: true, clickable: true }) }}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="section-action reveal">
+      <a href="{{ metadata.routes.people }}" class="button button--outline">{{ metadata.labels.view_team_directory }} <span aria-hidden="true">{{ metadata.symbols.external }}</span></a>
+    </div>
+  </div>
+</section>

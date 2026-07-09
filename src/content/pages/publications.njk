@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Publications
+description: Open-access journals and publications from The Whitestone Foundation.
+permalink: /publications/
+---
+
+<article class="page-shell">
+  <header class="page-header">
+    <p class="eyebrow">{{ publications.section.eyebrow }}</p>
+    <h1>{{ publications.section.title }} {{ publications.section.titleSpan }}</h1>
+    <p>{{ description }}</p>
+  </header>
+
+  <section class="publication-grid" aria-label="Whitestone publications">
+    {% for pub in publications.list %}
+      <a href="{{ pub.url }}" class="publication-card reveal" target="_blank" rel="noopener noreferrer">
+        <div class="publication-card__image">
+          <img src="{{ pub.image }}" alt="{{ pub.title }}" loading="lazy">
+          <div></div>
+        </div>
+        <div class="publication-card__body">
+          <p>{{ pub.abbr }}</p>
+          <h2>{{ pub.title }}</h2>
+          <span>{{ pub.description | safe }}</span>
+        </div>
+      </a>
+    {% else %}
+      <p>No publications found.</p>
+    {% endfor %}
+  </section>
+</article>

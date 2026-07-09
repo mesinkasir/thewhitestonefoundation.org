@@ -1,0 +1,28 @@
+<section id="mission" class="section section--canvas section--decorated">
+  <div class="section-orb">
+    <img src="{{ mission.image }}" alt="{{mission.title}}" width="1024" height="1024" loading="lazy">
+  </div>
+  <div class="site-container">
+    <div class="split-heading">
+      <div class="reveal">
+        <p class="eyebrow">{{mission.info}}</p>
+        <h2>
+          {{mission.title}} <span>{{ mission.sub_title | safe }}</span>
+        </h2>
+        <div class="rule"></div>
+      </div>
+      <div class="section-copy reveal">
+        <p class="lead">{{ mission.intro }}</p>
+        {{ mission.text | md | safe }}
+      </div>
+    </div>
+    <div class="stat-grid reveal">
+{% for stat in mission.stats %}
+  <div class="stat">
+    <p>{{ stat.title }}</p>
+    <span>{{ stat.info }}</span>
+  </div>
+{% endfor %}
+    </div>
+  </div>
+</section>

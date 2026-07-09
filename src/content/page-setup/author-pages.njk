@@ -1,0 +1,32 @@
+---
+layout: base.njk
+pagination:
+  data: collections.postAuthors
+  size: 1
+  alias: author
+eleventyComputed:
+  title: "Author: {{ author.name | titleCaseTerm }}"
+  permalink: "/authors/{{ author.slug }}/"
+  description: "Articles by {{ author.name | titleCaseTerm }}."
+---
+{% import "partials/card.njk" as cards %}
+{% import "partials/breadcrumb.njk" as bc %}
+{% set items = collections.posts | postsWithTerm("author", author.slug) | reverse %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, { name: "Authors", url: "/authors/" }) }}
+  <header class="page-header">
+    <p class="eyebrow">Author</p>
+    <h1>{{ author.name | titleCaseTerm }}</h1>
+    <p>{{ items.length }} article{{ "s" if items.length != 1 }} by this author.</p>
+  </header>
+
+  <div class="listing-grid">
+    {% for p in items %}
+      {{ cards.article(p, metadata) }}
+    {% else %}
+      <p>No posts found.</p>
+    {% endfor %}
+  </div>
+
+  <p><a href="/authors/" class="text-link">&larr; All authors</a></p>
+</section>

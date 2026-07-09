@@ -1,0 +1,33 @@
+---
+permalink: /humans.txt
+eleventyExcludeFromCollections: true
+---
+Site: {{ metadata.site_title }}
+Description: {{ metadata.description }}
+Contact: {{ metadata.contact }}
+
+/* TEAM */
+{% for member in collections.teamProfiles %}
+{{ member.data.name }}: {{ metadata.url }}{{ member.url }}
+{% endfor %}
+
+/* Web Development Team */
+{% for contributor in gitContributors %}
+{% if contributor.username %}
+{{ contributor.displayName }} / @{{ contributor.username }}
+{% else %}
+{{ contributor.displayName }}
+{% endif %}
+{% endfor %}
+
+/* Thanks */
+Zach for creating 11ty.dev
+Bob for 11tybundle.dev
+and all the brilliant webdevelopers who have contributed to the open source software that powers this site, including Eleventy, Nunjucks, and many others.
+
+/* SITE */
+Standards: HTML5, CSS3
+Components: Eleventy, Nunjucks,
+Software: VS Code, Node.js
+
+/* Tech Stack */

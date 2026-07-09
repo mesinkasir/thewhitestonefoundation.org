@@ -1,0 +1,46 @@
+{% import "partials/icon.njk" as icons %}
+<section id="support" class="section section--soft">
+  <div class="site-container">
+    <div class="section-heading section-heading--center reveal">
+      <p class="eyebrow">{{ supportSection.eyebrow }}</p>
+      <h2>
+        {{ supportSection.title }} <span>{{ supportSection.titleSpan }}</span>
+      </h2>
+      <p>{{ supportSection.description | safe }}</p>
+    </div>
+
+    <div class="support-panel">
+      <div class="reveal">
+        <p class="choice-label">{{ supportSection.step1 }}</p>
+        <div class="choice-grid choice-grid--areas" data-choice-group>
+          {% for area in impactAreas %}
+            <button type="button" class="choice-button {% if loop.last %}is-active{% endif %}" data-choice>
+              {{ icons.icon(area.icon) }}
+              <span>{{ area.label }}</span>
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="choice-step reveal">
+        <p class="choice-label">{{ supportSection.step2 }}</p>
+        <div class="choice-grid choice-grid--tiers" data-choice-group>
+          {% for tier in tiers %}
+            <button type="button" class="choice-button tier-button" data-choice>
+              <strong>${{ tier.amount }}</strong>
+              <span>{{ tier.impact }}</span>
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="support-action reveal">
+        <a href="{{ metadata.support }}" class="button">
+          {{ icons.icon("heart") }}
+          {{ supportSection.buttonText }}
+        </a>
+        <p>{{ supportSection.footnote }}</p>
+      </div>
+    </div>
+  </div>
+</section>

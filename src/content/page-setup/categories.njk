@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: "Categories"
+description: "Browse Whitestone articles by editorial category."
+permalink: /categories/
+---
+{% import "partials/breadcrumb.njk" as bc %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">Browse</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </header>
+
+  <div class="tag-cloud">
+    {% for category in collections.postCategories %}
+      <a class="tag-pill" href="/categories/{{ category.slug }}/">
+        {{ category.name | titleCaseTerm }}
+        <span>{{ category.count }}</span>
+      </a>
+    {% else %}
+      <p>No categories yet.</p>
+    {% endfor %}
+  </div>
+</section>

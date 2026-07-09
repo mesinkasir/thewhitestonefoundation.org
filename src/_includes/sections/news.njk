@@ -1,0 +1,35 @@
+<section id="news" class="section section--news section--border">
+  <div class="site-container">
+    <div class="section-heading-row reveal">
+      <div>
+        <p class="eyebrow">{{ newsSection.eyebrow }}</p>
+        <h2>
+          {{ newsSection.title }} <span>{{ newsSection.titleSpan }}</span>
+        </h2>
+      </div>
+      <a href="{{ metadata.routes.news }}" class="text-link">{{ newsSection.buttonText }} <span aria-hidden="true">{{ metadata.symbols.forward }}</span></a>
+    </div>
+
+    <div class="news-grid">
+      {% set latestPosts = collections.posts | reverse %}
+      {% for item in latestPosts %}
+        {% if loop.index <= 2 %}
+        <article class="news-card reveal">
+          <a href="{{ item.url }}">
+            <div class="news-card__image">
+              <img src="{% if loop.index0 == 0 %}{{ images.symposium }}{% else %}{{ images.campus }}{% endif %}" alt="{{ item.data.title }}" loading="lazy">
+            </div>
+            <div class="post-meta">
+              <span>{% if item.data.categories and item.data.categories.length %}{{ item.data.categories[0] }}{% else %}{{ metadata.labels.news }}{% endif %}</span>
+              <time>{{ item.date | readableDate }}</time>
+            </div>
+            <h3>{{ item.data.title }}</h3>
+            <p>{{ item.data.description or item.content | stripHtml | truncate(170) }}</p>
+            <span class="text-link">{{ metadata.labels.read_more }} <span aria-hidden="true">{{ metadata.symbols.forward }}</span></span>
+          </a>
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,197 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://thewhitestonefoundation.org/#website",
+      "url": "https://thewhitestonefoundation.org/",
+      "name": "The Whitestone Foundation",
+      "description": "Whitestone Publications and programs in critical theory, public scholarship, and higher education.",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://thewhitestonefoundation.org/#organization"
+      }
+    },
+    {
+      "@type": ["Organization", "NGO"],
+      "@id": "https://thewhitestonefoundation.org/#organization",
+      "name": "The Whitestone Foundation",
+      "alternateName": "Whitestone Publications",
+      "url": "https://thewhitestonefoundation.org/",
+      "logo": "https://thewhitestonefoundation.org/images/w.webp",
+      "image": "https://thewhitestonefoundation.org/images/w.webp",
+      "email": "hello@thewhitestonefoundation.org",
+      "description": "The Whitestone Foundation, dba Whitestone Publications, is a Boulder, Colorado-registered 501(c)(3) non-profit corporation dedicated to fostering critical thought for the public interest through independent research and open access publishing.",
+      "nonprofitStatus": "https://schema.org/Nonprofit501c3",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boulder",
+        "addressRegion": "CO",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://twitter.com/jourculreltheor",
+        "https://www.facebook.com/religioustheory",
+        "https://www.instagram.com/JCRT_DU1",
+        "https://bsky.app/profile/jcrt.org",
+        "https://mastodon.social/@jcrt"
+      ],
+      "publishingPrinciples": "https://thewhitestonefoundation.org/publications/",
+      "member": [
+        { "@id": "https://thewhitestonefoundation.org/team/victor-taylor/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/carl-raschke/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/gary-bedford/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/adam-dj-brett/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/kev-grane/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/robert-spinelli/#person" }
+      ],
+      "alumni": [
+        { "@id": "https://thewhitestonefoundation.org/team/alumni/dianna-able/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/alumni/alyssa-putzer/#person" },
+        { "@id": "https://thewhitestonefoundation.org/team/alumni/olesia-stockhold/#person" }
+      ],
+      "publisher": {
+        "@id": "https://thewhitestonefoundation.org/#publisher"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thewhitestonefoundation.org/#publisher",
+      "name": "Whitestone Publications",
+      "url": "https://thewhitestonefoundation.org/publications/",
+      "parentOrganization": {
+        "@id": "https://thewhitestonefoundation.org/#organization"
+      },
+      "publishes": [
+        {
+          "@type": "Periodical",
+          "@id": "https://jcrt.org/#publication",
+          "name": "The Journal for Cultural and Religious Theory",
+          "alternateName": "JCRT",
+          "url": "https://jcrt.org/",
+          "description": "A leading peer-reviewed open access journal exploring the intersections of culture, philosophy, and religious theory.",
+          "publisher": { "@id": "https://thewhitestonefoundation.org/#publisher" }
+        },
+        {
+          "@type": "Periodical",
+          "@id": "https://journal.thenewpolis.com/#publication",
+          "name": "The New Polis Journal",
+          "alternateName": "TNPJ",
+          "url": "https://journal.thenewpolis.com/",
+          "description": "A scholarly journal featuring rigorous academic articles on emerging trends in social theory and public discourse.",
+          "publisher": { "@id": "https://thewhitestonefoundation.org/#publisher" }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://thenewpolis.com/#publication",
+          "name": "The New Polis",
+          "alternateName": "TNP",
+          "url": "https://thenewpolis.com/",
+          "description": "An interdisciplinary platform for critical analysis of contemporary cultural and political thought.",
+          "publisher": { "@id": "https://thewhitestonefoundation.org/#publisher" }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://esthesis.org/#publication",
+          "name": "Esthesis",
+          "url": "https://esthesis.org/",
+          "description": "An interdisciplinary platform for thoughtful, innovative, sometimes provocative, and even quirky articles on the arts and contemporary ideas and culture.",
+          "publisher": { "@id": "https://thewhitestonefoundation.org/#publisher" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://wildglobalization.org/#publication",
+          "name": "Wild Globalization",
+          "url": "https://wildglobalization.org/",
+          "description": "A Whitestone Publications project researching ecological, cultural, technological, economic, and governance dimensions of globalization.",
+          "publisher": { "@id": "https://thewhitestonefoundation.org/#publisher" }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/victor-taylor/#person",
+      "name": "Victor Taylor",
+      "jobTitle": "President",
+      "image": "https://thewhitestonefoundation.org/images/wp-content/uploads/2021/08/VTaylor-1.webp",
+      "email": "victor@thewhitestonefoundation.org",
+      "description": "President of the Whitestone Foundation and a nationally recognized humanities scholar; executive editor of the Journal of Cultural and Religious Theory.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/carl-raschke/#person",
+      "name": "Carl Raschke",
+      "jobTitle": "Co-Founder, Secretary-Treasurer",
+      "image": "https://thewhitestonefoundation.org/images/carl-raschke-sm2.webp",
+      "email": "carl@thewhitestonefoundation.org",
+      "description": "Co-Founder and Secretary-Treasurer; Professor of Philosophy of Religion at the University of Denver and author of twenty-plus books on theology and society.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/gary-bedford/#person",
+      "name": "Gary Bedford",
+      "jobTitle": "Vice President and Board Member",
+      "image": "https://thewhitestonefoundation.org/images/gary-bedford.webp",
+      "email": "gary@thewhitestonefoundation.org",
+      "description": "Vice President and Board Member leading the Wild Globalization Project, researching civilization's ecological, cultural, and economic turning points.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/adam-dj-brett/#person",
+      "name": "Adam DJ Brett",
+      "jobTitle": "Special Projects Editor",
+      "image": "https://thewhitestonefoundation.org/images/adamdjbrett-sm.webp",
+      "email": "adam@thewhitestonefoundation.org",
+      "identifier": "https://orcid.org/0009-0004-6725-8425",
+      "description": "Special Projects Editor for Whitestone Publications; a Syracuse Ph.D. exploring how Christianity, colonialism, and culture intertwine in North America.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/kev-grane/#person",
+      "name": "Kev Grane",
+      "jobTitle": "Assistant Editor",
+      "image": "https://thewhitestonefoundation.org/images/wp-content/uploads/2021/08/Kev-Grane.webp",
+      "description": "Assistant Editor for Whitestone Publications and a PhD student in the University of Denver-Iliff School of Theology Joint Doctoral Program in Denver.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/robert-spinelli/#person",
+      "name": "Robert Spinelli",
+      "jobTitle": "Assistant Editor",
+      "description": "Assistant Editor for Whitestone Publications, an Archivist at Middle Tennessee State University who conducts multidisciplinary independent scholarly research.",
+      "worksFor": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/alumni/dianna-able/#person",
+      "name": "Dianna Able",
+      "jobTitle": "Alumni",
+      "image": "https://thewhitestonefoundation.org/images/wp-content/uploads/2021/08/IMG_1673.webp",
+      "description": "Assistant Editor for the Journal for Cultural and Religious Theory from 2020-2022; now an editor with Shambhala Publishing based in the United States.",
+      "alumniOf": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/alumni/alyssa-putzer/#person",
+      "name": "Alyssa Putzer",
+      "jobTitle": "Alumni",
+      "image": "https://thewhitestonefoundation.org/images/wp-content/uploads/2021/08/A-Putzer.webp",
+      "description": "Marketing Editor for Whitestone Publications from 2020-22, now a PhD student at the University of Wisconsin continuing her scholarly work in the humanities.",
+      "alumniOf": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thewhitestonefoundation.org/team/alumni/olesia-stockhold/#person",
+      "name": "Olesia Stockhold",
+      "jobTitle": "Alumni",
+      "image": "https://thewhitestonefoundation.org/images/wp-content/uploads/2022/05/Olesia.webp",
+      "description": "Part-time Assistant to the Publisher for Whitestone Publications from 2019-22; now Recruitment and Enrollment Manager at the University of Colorado, Denver.",
+      "alumniOf": { "@id": "https://thewhitestonefoundation.org/#organization" }
+    }
+  ]
+}
