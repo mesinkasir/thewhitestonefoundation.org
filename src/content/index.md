@@ -89,7 +89,7 @@ programs:
     link_url: /symposia/
   - icon: books
     title: "White Papers"
-    description: "Since 1999 the Whitestone Foundation dba Whitestone Publications has been a trailblazer in the development of online open access academic publishing."
+    description: "At the heart of the Knowledge Futures initiative is an ongoing series of whitepapers bringing the latest curated literature research on the developments in the knowledge economy."
     link_title: 
     link_url: /publications/
 
