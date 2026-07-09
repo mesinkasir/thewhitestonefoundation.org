@@ -23,7 +23,7 @@ permalink: /academia/announcing-whitestone-thought-leader-symposia/
 
 ## Details
 ### Global Thought Leader Symposia
-[The Existential Crisis of Learning and the Future of the Knowledge Economy Videos](https://www.youtube.com/embed/lroJtmhT3d8)
+[The Existential Crisis of Learning and the Future of the Knowledge Economy](https://www.youtube.com/watch?v=lroJtmhT3d8)
 
 [The Whitestone Foundation](/) held its inaugural online thought leader symposium entitled "The Existential Crisis of Learning and the Future of the Knowledge Economy" on Nov. 12, 2025. [Watch the video.](https://www.youtube.com/watch?v=lroJtmhT3d8)
 
