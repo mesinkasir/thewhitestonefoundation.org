@@ -1,6 +1,26 @@
 # Changelog
 
-This file summarizes the work completed in this chat session for the Whitestone Foundation Eleventy site.
+## 2026-07-08 — Version 3 theme and org-wide search
+
+- Migrated the v3 rebuild (`thewhitestonefoundation-v3`) into this repo: Eleventy 4 alpha,
+  `src/` input, redesigned theme, Pagefind Component UI search, JSON/RSS/Atom feeds,
+  panelists/publications/videos sections.
+- Retargeted the build output to `_site/` so the existing Netlify pipeline
+  (`npm run build` → `_site`) works unchanged; dropped the xmit deploy path.
+- Wired Sequoia staging (`sequoia:stage`) into `npm run build`; the staging script now
+  reads `src/content/posts/`.
+- Added Categories, Tags, and Authors archive + index pages in the v3 design system.
+- Added per-post BlogPosting JSON-LD alongside the site-wide schema graph.
+- Removed the semantic-vector search and cross-site metasearch/allsites pipeline
+  (including `ingest-allsites.yml`); replaced by Pagefind multisite search.
+- New org-wide search at `/metadata/search/`: merges the Pagefind indexes of
+  jcrt.org, thenewpolis.com, journal.thenewpolis.com, and esthesis.org with this
+  site's own index, browser-side via `mergeIndex` (each site now serves CORS headers
+  on `/pagefind/*`).
+
+---
+
+The sections below summarize the original site build.
 
 ## Major Setup and Structure
 - Built a new Eleventy site scaffold under `thewhitestonefoundation-content` with:

@@ -5,7 +5,7 @@
   "publicDir": "public",
   "outputDir": "_site",
   "pathTemplate": "{standardPath}",
-  "publicationUri": "at://did:plc:e24okfpxr7ctcbmruijop5gp/site.standard.publication/REPLACE_WITH_WHITESTONE_PUBLICATION_RKEY",
+  "publicationUri": "at://did:plc:e24okfpxr7ctcbmruijop5gp/site.standard.publication/whitestone",
   "pdsUrl": "https://bsky.social",
   "identity": "jcrt.org",
   "frontmatter": {
