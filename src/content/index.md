@@ -88,7 +88,7 @@ programs:
     link_title: Explore Symposia
     link_url: /symposia/
   - icon: books
-    title: "Peer Reveiwed Publications"
+    title: "White Papers"
     description: "Since 1999 the Whitestone Foundation dba Whitestone Publications has been a trailblazer in the development of online open access academic publishing."
     link_title: 
     link_url: /publications/
