@@ -171,6 +171,8 @@ footer:
       url: "/ai/"
     - label: "Contact"
       url: "/contact/"
+    - label: "Metasearch"
+      url: "/metasearch/"
     - label: "News"
       url: "/news/"
     - label: "People"
