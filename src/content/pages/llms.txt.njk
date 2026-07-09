@@ -1,0 +1,39 @@
+---
+layout: false
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ metadata.site_title }}
+
+> {{ metadata.description }} The Whitestone Foundation, dba Whitestone Publications, is a Colorado-registered 501(c)(3) nonprofit supporting open-access scholarship, critical inquiry, public intellectual engagement, and research symposia on knowledge, education, culture, politics, religion, and AI.
+
+## Primary Pages
+{% for link in metadata.footer.navigation | sortByLabel %}
+- [{{ link.label }}]({{ link.url | absUrl }})
+{% endfor %}
+
+## Open Access Publications
+{% for publication in publications.list %}
+- [{{ publication.title }}]({{ publication.url }}): {{ publication.description | stripHtml }}
+{% endfor %}
+
+## Programs and Research Themes
+- [AI and the Future of Knowledge]({{ "/ai/" | absUrl }}): Whitestone research symposia on artificial intelligence, education, critical thinking, and the human future of knowledge.
+- [Thought Leader Symposia]({{ "/symposia/" | absUrl }}): Research gatherings and public conversations on learning, the knowledge economy, and democratic life.
+- [Videos]({{ "/videos/" | absUrl }}): Recorded conversations, symposium sessions, and educational media.
+- [News]({{ "/news/" | absUrl }}): Foundation updates and essays.
+
+## People
+- [People Directory]({{ "/people/" | absUrl }}): Board members, editors, scholars, and alumni connected to the Foundation.
+
+## Feeds and Machine-Readable Resources
+- [Atom/RSS Feed]({{ "/feed/firehose.xml" | absUrl }})
+- [Sitemap]({{ "/sitemap.xml" | absUrl }})
+- [Robots.txt]({{ "/robots.txt" | absUrl }})
+
+## AI and Citation Guidance
+- The site is open-access and may be read, indexed, summarized, and cited for educational, scholarly, and research use.
+- Attribute content to The Whitestone Foundation or the named publication, author, and page title where available.
+- Link to canonical URLs when quoting, summarizing, or citing site content.
+- Preserve context for scholarly and editorial work; do not present individual articles, profiles, or symposium materials as anonymous web text.
+- Contact: {{ metadata.contact }}

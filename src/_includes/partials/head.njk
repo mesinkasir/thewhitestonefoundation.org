@@ -1,0 +1,43 @@
+{% set pageTitle = { title: title, metadata: metadata } | headTitle %}
+{% set pageDescription = { description: description, metadata: metadata } | headDescription %}
+{% set pageImage = { image: image, metadata: metadata } | headImage | absUrl %}
+{% set canonical = { page: page, metadata: metadata } | canonicalUrl %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="{{ buildinfo.generator }}">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <meta name="robots" content="{% if noindex or metadata.noindex %}noindex, nofollow{% else %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endif %}">
+  <link rel="canonical" href="{{ canonical }}">
+  {% for item in favicons.links %}
+  <link rel="{{ item.rel }}"{% if item.type %} type="{{ item.type }}"{% endif %}{% if item.sizes %} sizes="{{ item.sizes }}"{% endif %} href="{{ item.href }}" />
+  {% endfor %}
+  {% for item in favicons.meta %}
+  <meta name="{{ item.name }}" content="{{ item.content }}" />
+  {% endfor %}
+  {% for item in metadata.head.link %}
+  {% if item.rel != "icon" %}
+  <link rel="{{ item.rel }}" href="{{ item.href }}">
+  {% endif %}
+  {% endfor %}
+  {% for item in metadata.head.meta %}
+  <meta name="{{ item.name }}" content="{{ item.content }}">
+  {% endfor %}
+  <meta property="og:title" content="{{ title or metadata.site_title }}">
+  <meta property="og:type" content="{{ ogType or metadata.seo.openGraph.type }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:site_name" content="{{ metadata.site_title }}">
+  <meta property="og:locale" content="{{ metadata.locale or 'en_US' }}">
+  <meta property="og:image" content="{{ pageImage }}">
+  <meta property="og:image:alt" content="{{ imageAlt or title or metadata.seo.ogImage.alt or metadata.site_title }}">
+  <meta name="twitter:card" content="{{ metadata.seo.twitter.card }}">
+  {% for script in metadata.head.script %}
+  <script src="{{ script.src }}"{% if script.defer %} defer{% endif %}></script>
+  {% endfor %}
+  {% if schema %}
+  <script type="application/ld+json">{{ schema | jsonLd | safe }}</script>
+  {% endif %}
+  {# Pagefind search UI is lazy-loaded off the critical path in assets/js/index.js #}
+</head>

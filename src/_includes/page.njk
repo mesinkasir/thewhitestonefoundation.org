@@ -1,0 +1,16 @@
+{% extends "base.njk" %}
+{% import "partials/breadcrumb.njk" as bc %}
+
+{% block content %}
+<article class="page-shell">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">{{ metadata.brand.full_name }}</p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p>{{ description }}</p>{% endif %}
+  </header>
+  <div class="prose-green">
+    {{ content | markExternalLinks | safe }}
+  </div>
+</article>
+{% endblock %}

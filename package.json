@@ -1,36 +1,33 @@
 {
-  "name": "thewhitestonefoundation-11ty",
+  "name": "thewhitestonefoundation-v3",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
+  "packageManager": "npm@11.9.0",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve",
+    "clean": "shx rm -rf _site",
+    "dev": "eleventy --serve --port=8080",
     "sequoia:stage": "node scripts/build-sequoia-content.mjs",
-    "build": "npm run sequoia:stage && rm -rf _site && npx @11ty/eleventy && node scripts/build-pagefind-import.mjs && node scripts/run-pagefind.mjs && node scripts/build-metasearch-index.mjs && node scripts/build-semantic-vectors.mjs",
-    "refresh:metasearch": "node scripts/update-allsites-canonical.mjs"
+    "build:site": "cross-env ELEVENTY_ENV=production eleventy",
+    "build:search": "pagefind --site _site --output-subdir pagefind",
+    "build:assets": "esbuild _site/assets/css/index.css --minify --allow-overwrite --outfile=_site/assets/css/index.css && esbuild _site/assets/js/index.js --minify --allow-overwrite --outfile=_site/assets/js/index.js",
+    "build": "npm run clean && npm run sequoia:stage && npm run build:site && npm run build:assets && npm run build:search",
+    "start": "npm run dev"
   },
-  "dependencies": {
-    "@11ty/eleventy": "3.1.6",
-    "@11ty/eleventy-navigation": "^1.0.5",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "@huggingface/transformers": "3.8.1",
-    "eleventy-plugin-toc": "^1.1.5",
-    "luxon": "^3.5.0",
-    "markdown-it": "^14.2.0",
-    "markdown-it-anchor": "^9.2.0",
-    "markdown-it-attrs": "^4.3.1",
-    "markdown-it-footnote": "^4.0.0",
-    "markdown-it-table-of-contents": "^0.8.0",
-    "node-addon-api": "^8.8.0",
-    "node-gyp": "^12.4.0",
+  "devDependencies": {
+    "@11ty/eleventy": "4.0.0-alpha.10",
+    "cross-env": "^10.1.0",
+    "esbuild": "0.28.1",
+    "js-yaml": "4.2.0",
+    "markdown-it": "14.2.0",
     "pagefind": "^1.4.0",
-    "sentence-splitter": "5.0.0"
+    "shx": "^0.4.0"
   },
   "engines": {
-    "node": ">=24",
-    "npm": ">=11.14.0"
+    "node": ">=24"
   },
-  "packageManager": "npm@11.14.0",
-  "overrides": {
-    "undici": "~7.28.0"
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }

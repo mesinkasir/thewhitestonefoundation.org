@@ -1,0 +1,32 @@
+---
+layout: base.njk
+pagination:
+  data: collections.postTags
+  size: 1
+  alias: tag
+eleventyComputed:
+  title: "Tag: {{ tag.name | titleCaseTerm }}"
+  permalink: "/tags/{{ tag.slug }}/"
+  description: "Articles tagged {{ tag.name | titleCaseTerm }}."
+---
+{% import "partials/card.njk" as cards %}
+{% import "partials/breadcrumb.njk" as bc %}
+{% set items = collections.posts | postsWithTerm("tags", tag.slug) | reverse %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, { name: "Tags", url: "/tags/" }) }}
+  <header class="page-header">
+    <p class="eyebrow">Tag</p>
+    <h1>{{ tag.name | titleCaseTerm }}</h1>
+    <p>{{ items.length }} article{{ "s" if items.length != 1 }} tagged this topic.</p>
+  </header>
+
+  <div class="listing-grid">
+    {% for p in items %}
+      {{ cards.article(p, metadata) }}
+    {% else %}
+      <p>No posts found.</p>
+    {% endfor %}
+  </div>
+
+  <p><a href="/tags/" class="text-link">&larr; All tags</a></p>
+</section>

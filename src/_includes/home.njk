@@ -1,0 +1,21 @@
+{% extends "base.njk" %}
+
+{% block mainClass %}home-main{% endblock %}
+
+{% block content %}
+  <div class="h-card visually-hidden">
+    <a class="u-url" href="{{ metadata.url }}">{{ metadata.site_title }}</a>
+    <img class="u-logo u-photo" src="{{ metadata.image | absUrl }}" alt="{{ metadata.image_alt }}" width="695" height="479">
+    <p class="p-name">{{ metadata.site_title }}</p>
+    <p class="p-note">{{ metadata.description }}</p>
+    <a class="u-email" href="mailto:{{ metadata.contact }}">{{ metadata.contact }}</a>
+  </div>
+  {% include "sections/hero.njk" %}
+  {% include "sections/mission.njk" %}
+  {% include "sections/publications.njk" %}
+  {% include "sections/programs.njk" %}
+  {% include "sections/team.njk" %}
+  {% include "sections/news.njk" %}
+  {% include "sections/about.njk" %}
+  {% include "sections/support.njk" %}
+{% endblock %}

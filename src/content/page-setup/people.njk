@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: "People"
+description: "Meet the dedicated team and scholars behind The Whitestone Foundation and our publications."
+permalink: /people/
+---
+{% import "partials/card.njk" as cards %}
+{% import "partials/breadcrumb.njk" as bc %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">Directory</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </header>
+
+  <div class="people-grid">
+    {% for member in collections.teamActive %}
+      {{ cards.person(member, metadata, { square: true, heading: "h2" }) }}
+    {% endfor %}
+  </div>
+
+  {% if collections.teamAlumni.length %}
+    <div class="alumni-list">
+      <h2>Alumni</h2>
+      <div class="listing-grid">
+      {% for member in collections.teamAlumni %}
+        <article class="alumni-card">
+          <img src="{{ member.data.photo or metadata.image }}" alt="{{ member.data.name }}" loading="lazy">
+          <div>
+            <h3>{{ member.data.name }}</h3>
+            <p>{{ member.data.description | md | stripHtml | truncate(120) }}</p>
+            <a href="{{ member.url }}" class="text-link">View Full Profile <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>

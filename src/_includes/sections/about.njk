@@ -1,0 +1,31 @@
+<section id="about" class="section section--dark section--angled">
+  <div class="diagonal-about-top"></div>
+  <div class="site-container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-frame">
+          <div class="about-image-clip">
+            <img src="{{ images.scholars }}" alt="{{ metadata.images.aboutAlt }}">
+          </div>
+          <div class="about-frame__border"></div>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow eyebrow--light">{{ aboutSection.eyebrow }}</p>
+        <h2>
+          {{ aboutSection.title }} <span>{{ aboutSection.titleSpan }}</span>
+        </h2>
+        <div class="section-copy section-copy--light">
+          <p>{{ aboutSection.paragraph1 }}</p>
+          <p>{{ aboutSection.paragraph2 }}</p>
+        </div>
+        <div class="about-badges">
+          {% for badge in aboutSection.badges %}
+          <div><p>{{ badge.number }}</p><span>{{ badge.label }}</span></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="diagonal-bottom"></div>
+</section>

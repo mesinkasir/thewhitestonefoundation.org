@@ -1,0 +1,26 @@
+section:
+  eyebrow: Publications
+  title: Open Access
+  titleSpan: Scholarship
+  description: ~
+list:
+  - title: "The Journal for Cultural and Religious Theory"
+    abbr: "JCRT"
+    description: "A leading peer-reviewed open access journal exploring the intersections of culture, philosophy, and religious theory."
+    url: "https://jcrt.org/"
+    image: "/images/jcrt-open-graph-1184x864.webp"
+  - title: "The New Polis Journal"
+    abbr: "TNPJ"
+    description: "A scholarly journal featuring rigorous academic articles on emerging trends in social theory and public discourse."
+    url: "https://journal.thenewpolis.com/"
+    image: "/images/the-new-polis-journal-1184x864.svg"
+  - title: "The New Polis"
+    abbr: "TNP"
+    description: "An interdisciplinary platform for critical analysis of contemporary cultural and political thought."
+    url: "https://thenewpolis.com/"
+    image: "/images/the-new-polis-1184x864.svg"
+  - title: "Esthesis"
+    abbr: "art"
+    description: "An interdisciplinary platform for thoughtful, innovative, sometimes provocative, and even quirky articles on the arts and contemporary ideas and culture."
+    url: "https://esthesis.org/"
+    image: "/images/esthesis-bauhaus-1184x864.svg"

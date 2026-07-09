@@ -1,0 +1,91 @@
+---
+layout: base.njk
+title: "Videos"
+description: "Watch our collection of critical conversations and educational videos."
+image: /images/wp-content/uploads/2021/08/whitestone-logo.webp
+permalink: /videos/
+---
+{% import "partials/breadcrumb.njk" as bc %}
+<article class="page-shell page-shell--wide media-library">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">Whitestone Screenings</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </header>
+
+  <section class="media-grid" aria-label="Video Library">
+    {% for video in videos.list %}
+      {% set idOnly = video.url.split('?')[0] %}
+      <article class="media-card media-card--video reveal">
+        <button
+          type="button"
+          class="media-card__thumb"
+          data-video-trigger
+          data-video-id="{{ video.url }}"
+          data-video-title="{{ video.title }}"
+          aria-label="Play {{ video.title }}"
+        >
+          <img src="https://i.ytimg.com/vi/{{ idOnly }}/hqdefault.jpg" alt="{{ video.title }}" loading="lazy">
+          <span class="media-card__play" aria-hidden="true"></span>
+        </button>
+        <div class="media-card__body">
+          <h2>{{ video.title }}</h2>
+          <p>Watch on demand from Whitestone's conversations and symposium archives.</p>
+        </div>
+      </article>
+    {% else %}
+      <p>No videos found.</p>
+    {% endfor %}
+  </section>
+</article>
+
+<div id="video-modal" class="video-modal" aria-hidden="true">
+  <div class="video-modal__backdrop" data-video-close></div>
+  <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Video player">
+    <button type="button" class="video-modal__close" data-video-close aria-label="Close video">&times;</button>
+    <div class="video-modal__ratio">
+      <div id="video-modal-frame"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const videoModal = document.getElementById('video-modal');
+  const videoFrame = document.getElementById('video-modal-frame');
+  const videoTriggers = document.querySelectorAll('[data-video-trigger]');
+  const videoCloseActions = document.querySelectorAll('[data-video-close]');
+
+  function openVideoModal(videoId) {
+    const connector = videoId.includes('?') ? '&' : '?';
+    videoFrame.innerHTML =
+      `<iframe src="https://www.youtube.com/embed/${videoId}${connector}autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+
+    videoModal.classList.add('is-active');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    videoModal.classList.remove('is-active');
+    videoModal.setAttribute('aria-hidden', 'true');
+    videoFrame.innerHTML = '';
+    document.body.style.overflow = 'auto';
+  }
+
+  videoTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      openVideoModal(trigger.dataset.videoId || '');
+    });
+  });
+
+  videoCloseActions.forEach((closeAction) => {
+    closeAction.addEventListener('click', closeVideoModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    }
+  });
+</script>

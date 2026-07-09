@@ -1,0 +1,32 @@
+---
+layout: base.njk
+pagination:
+  data: collections.postCategories
+  size: 1
+  alias: category
+eleventyComputed:
+  title: "Category: {{ category.name | titleCaseTerm }}"
+  permalink: "/categories/{{ category.slug }}/"
+  description: "Articles filed under {{ category.name | titleCaseTerm }}."
+---
+{% import "partials/card.njk" as cards %}
+{% import "partials/breadcrumb.njk" as bc %}
+{% set items = collections.posts | postsWithTerm("categories", category.slug) | reverse %}
+<section class="page-shell">
+  {{ bc.render(page, title, metadata, { name: "Categories", url: "/categories/" }) }}
+  <header class="page-header">
+    <p class="eyebrow">Category</p>
+    <h1>{{ category.name | titleCaseTerm }}</h1>
+    <p>{{ items.length }} article{{ "s" if items.length != 1 }} in this category.</p>
+  </header>
+
+  <div class="listing-grid">
+    {% for p in items %}
+      {{ cards.article(p, metadata) }}
+    {% else %}
+      <p>No posts found.</p>
+    {% endfor %}
+  </div>
+
+  <p><a href="/categories/" class="text-link">&larr; All categories</a></p>
+</section>

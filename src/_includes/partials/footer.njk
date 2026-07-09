@@ -1,0 +1,55 @@
+{% import "partials/icon.njk" as icons %}
+
+<footer class="site-footer">
+  <div class="site-container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="brand-mark brand-mark--light">
+          <div class="brand-diamond">
+            <img src="{{ metadata.brand.mark }}" alt="{{ metadata.image_alt }}" width="695" height="479" loading="lazy">
+          </div>
+          <span class="brand-name">{{ metadata.footer.brand }}</span>
+        </div>
+        <p>
+          {{ metadata.footer.about }}
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-heading">{{ metadata.footer.navigation_heading }}</p>
+        <div class="footer-links">
+          {% for link in metadata.footer.navigation | sortByLabel %}
+            <a href="{{ link.url }}">{{ link.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-heading">{{ metadata.footer.journals_heading }}</p>
+        <div class="footer-links">
+          {% for publication in metadata.footer.publications %}
+            <a href="{{ publication.url }}">
+              {{ publication.title }}
+              <span aria-hidden="true">{{ metadata.symbols.external }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        <a href="/feed/firehose.xml" class="footer-feed-link" aria-label="Atom feed">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256" aria-hidden="true"><path d="M106.91,149.09A71.53,71.53,0,0,1,128,200a8,8,0,0,1-16,0,56,56,0,0,0-56-56,8,8,0,0,1,0-16A71.53,71.53,0,0,1,106.91,149.09ZM56,80a8,8,0,0,0,0,16A104,104,0,0,1,160,200a8,8,0,0,0,16,0A120,120,0,0,0,56,80Zm118.79,1.21A166.9,166.9,0,0,0,56,32a8,8,0,0,0,0,16A151,151,0,0,1,163.48,92.52,151,151,0,0,1,208,200a8,8,0,0,0,16,0A166.9,166.9,0,0,0,174.79,81.21ZM60,184a12,12,0,1,0,12,12A12,12,0,0,0,60,184Z"></path></svg>
+        </a>
+        <a class="footer-license-link" href="{{ metadata.footer.link }}" target="_blank" rel="license noopener noreferrer" aria-label="{{ metadata.footer.license }} license">
+          {{ icons.icon(metadata.footer.license) }}
+        </a>
+        © {% year %} {{ metadata.footer.copyright_name }}. {{ metadata.footer.copyright_rights }}
+      </p>
+      <p>
+        <a href="{{ metadata.footer.built_with.url }}" target="_blank" rel="noopener noreferrer">{{ metadata.footer.built_with.label }}</a>
+      </p>
+    </div>
+  </div>
+</footer>

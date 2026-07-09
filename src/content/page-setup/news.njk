@@ -1,0 +1,66 @@
+---
+layout: base.njk
+title: "News"
+description: "Stay updated with the latest news and articles from The Whitestone Foundation."
+pagination:
+  data: collections.posts
+  size: 2
+  alias: news
+  reverse: true
+eleventyComputed:
+  permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+{% import "partials/card.njk" as cards %}
+<section class="page-shell">
+  <header class="page-header">
+    <p class="eyebrow">News</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }} Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}.</p>
+  </header>
+
+  {% if collections.postCategories and collections.postCategories.length %}
+    <section class="taxonomy-panel" aria-labelledby="news-categories-heading">
+      <h2 id="news-categories-heading">Categories</h2>
+      <div class="tag-cloud">
+        {% for category in collections.postCategories %}
+          <a class="tag-pill" href="/categories/{{ category.slug }}/">
+            {{ category.name | titleCaseTerm }}
+            <span>{{ category.count }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <div class="listing-grid">
+    {% for p in news %}
+      {{ cards.article(p, metadata) }}
+    {% else %}
+      <p>No posts found.</p>
+    {% endfor %}
+  </div>
+
+  {% if pagination.pages.length > 1 %}
+    <nav class="pagination-nav">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="button button--outline">← Newer</a>
+      {% else %}
+        <span>First Page</span>
+      {% endif %}
+
+      <div>
+        {% for pageEntry in pagination.pages %}
+          <a href="{{ pagination.hrefs[loop.index0] }}" class="{% if pagination.pageNumber == loop.index0 %}is-active{% endif %}">
+            {{ loop.index }}
+          </a>
+        {% endfor %}
+      </div>
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="button button--outline">Older →</a>
+      {% else %}
+        <span>Last Page</span>
+      {% endif %}
+    </nav>
+  {% endif %}
+</section>

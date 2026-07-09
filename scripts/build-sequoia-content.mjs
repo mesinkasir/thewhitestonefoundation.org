@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const CONTENT_DIR = path.join(ROOT, "content");
+const CONTENT_DIR = path.join(ROOT, "src", "content");
 const OUT_DIR = path.join(ROOT, ".sequoia", "content");
 const SITE_NAME = "The Whitestone Foundation";
 const INCLUDE_PREFIXES = ["posts/"];

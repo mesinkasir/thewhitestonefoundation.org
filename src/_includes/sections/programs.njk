@@ -1,0 +1,35 @@
+{% import "partials/icon.njk" as icons %}
+<section id="programs" class="section section--soft">
+  <div class="site-container">
+    <div class="split-heading split-heading--compact">
+      <div class="reveal">
+        <p class="eyebrow">{{ programsSection.eyebrow }}</p>
+        <h2>
+          {{ programsSection.title }} <span>{{ programsSection.titleSpan }}</span>
+        </h2>
+      </div>
+      <div class="section-copy reveal">
+        <p>{{ programsSection.description | safe }}</p>
+      </div>
+    </div>
+    <div class="program-grid">
+      {% for program in programs %}
+        <div class="program-card reveal">
+          <div class="corner corner-tl"></div>
+          <div class="corner corner-br"></div>
+          <div class="icon-box">
+            {{ icons.icon(program.icon) }}
+          </div>
+          <h3>{{ program.title }}</h3>
+          <p>{{ program.description | safe }}</p>
+          {% if program.link_url %}
+            <a href="{{ program.link_url }}" class="button button--outline program-card__button">
+              {{ program.link_title or metadata.labels.read_more }}
+              <span aria-hidden="true">{{ metadata.symbols.external }}</span>
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: "Panelists"
+image: /images/wp-content/uploads/2021/08/whitestone-logo.webp
+permalink: /panelists/
+info: |
+  #### The following are panelists for the Whitestone Foundation’s Thought Leader Symposium #1 entitled [“The Existential Crisis of Learning and the Future of the Knowledge Economy” ](/events/)on Nov. 12, 2025.
+---
+
+{% import "partials/breadcrumb.njk" as bc %}
+<article class="page-shell page-shell--wide panelists-page">
+  {{ bc.render(page, title, metadata, none) }}
+  <header class="page-header">
+    <p class="eyebrow">Thought Leader Symposium</p>
+    <h1>{{ title }}</h1>
+    {% if info %}
+      <div class="page-intro-callout">
+        {{ info | md | safe }}
+      </div>
+    {% endif %}
+  </header>
+
+  <section class="media-grid media-grid--panelists" aria-label="Panelists">
+    {% for person in panelists.list %}
+      <article class="media-card media-card--panelist reveal">
+        <div class="media-card__portrait">
+          <img src="{{ person.photo }}" alt="{{ person.name }}" loading="lazy">
+        </div>
+        <div class="media-card__body">
+          <h2>{{ person.name }}</h2>
+          <div class="media-card__copy">
+            {{ person.description | md | safe }}
+          </div>
+        </div>
+      </article>
+    {% else %}
+      <p>No panelists found.</p>
+    {% endfor %}
+  </section>
+</article>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(metadata.defaultLanguage or metadata.language) }}">
+  {% include "partials/head.njk" %}
+  <body>
+    <a href="#document" class="skip-link">{{ metadata.labels.skip_link }}</a>
+    {% include "partials/nav.njk" %}
+    <main id="document" tabindex="-1" class="{% block mainClass %}{% endblock %}">
+      {% block content %}{{ content | safe }}{% endblock %}
+    </main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>
