@@ -10,6 +10,10 @@
   <meta name="description" content="{{ pageDescription }}">
   <meta name="robots" content="{% if noindex or metadata.noindex %}noindex, nofollow{% else %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endif %}">
   <link rel="canonical" href="{{ canonical }}">
+  {% if hero and hero.image %}
+  {# Hero is a CSS background-image, so the browser can't discover its own priority; hint it explicitly since it's the page's LCP element. #}
+  <link rel="preload" as="image" href="{{ hero.image }}" fetchpriority="high">
+  {% endif %}
   {% for item in favicons.links %}
   <link rel="{{ item.rel }}"{% if item.type %} type="{{ item.type }}"{% endif %}{% if item.sizes %} sizes="{{ item.sizes }}"{% endif %} href="{{ item.href }}" />
   {% endfor %}
