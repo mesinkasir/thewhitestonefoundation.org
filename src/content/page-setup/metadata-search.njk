@@ -15,6 +15,7 @@ permalink: /metadata/search/
 
   <div id="allsites-search">
     <noscript><p>This search requires JavaScript. You can search each site directly: <a href="https://jcrt.org/search/">JCRT</a>, <a href="https://thenewpolis.com/search/">The New Polis</a>, <a href="https://journal.thenewpolis.com/search/">The New Polis Journal</a>, <a href="https://esthesis.org/search/">Esthesis</a>.</p></noscript>
+    <p id="allsites-search-loading" class="search-help">Connecting to all Whitestone sites&hellip;</p>
   </div>
 </section>
 
@@ -25,7 +26,8 @@ permalink: /metadata/search/
 
   // A single unreachable index poisons the whole search instance, so only
   // merge remote bundles that respond (a site outage then degrades to
-  // fewer sources instead of breaking search entirely).
+  // fewer sources instead of breaking search entirely). The probes below
+  // take a moment, so the loading message above covers that gap.
   const remotes = [
     { bundlePath: "https://jcrt.org/pagefind/", mergeFilter: { Site: "JCRT" } },
     { bundlePath: "https://thenewpolis.com/pagefind/", mergeFilter: { Site: "The New Polis" } },
