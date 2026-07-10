@@ -31,8 +31,11 @@ mission:
     Whitestone publishes, convenes, teaches, and challenges. Our open-access journals, our global seminar series, and our expanding educational programs exist for one purpose: to make serious intellectual work matter — in universities struggling to reimagine themselves, in communities left behind by the knowledge economy, and in the urgent public debate about what AI means for learning, governance, and human life.
 
     We are committed to open access because knowledge hoarded is knowledge wasted. We are committed to critical thinking because the alternative is the algorithm. And we are committed to education's transformation because the institution that produced the modern world cannot coast through its most disruptive century unchanged.
-  #button_title: Knowledge Futures
-  #button_url: /docs/Knowledge-Futures-for-the-21st-Century.pdf
+  button: 
+     - text: Knowledge Futures
+       url: "#"
+
+  
   stats:
     - title: "3"
       info: Peer-Reviewed Journals
