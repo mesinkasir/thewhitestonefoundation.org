@@ -16,13 +16,13 @@ permalink: /videos/
 
   <section class="media-grid" aria-label="Video Library">
     {% for video in videos.list %}
-      {% set idOnly = video.url.split('?')[0] %}
+      {% set idOnly = video.url.split('v=')[1].split('&')[0] %}
       <article class="media-card media-card--video reveal">
         <button
           type="button"
           class="media-card__thumb"
           data-video-trigger
-          data-video-id="{{ video.url }}"
+          data-video-id="{{ idOnly }}"
           data-video-title="{{ video.title }}"
           aria-label="Play {{ video.title }}"
         >
@@ -31,7 +31,7 @@ permalink: /videos/
         </button>
         <div class="media-card__body">
           <h2>{{ video.title }}</h2>
-          <p>Watch on demand from Whitestone's conversations and symposium archives.</p>
+          <p>{{ video.description }}</p>
         </div>
       </article>
     {% else %}
