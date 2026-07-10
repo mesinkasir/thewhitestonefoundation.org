@@ -9,7 +9,15 @@
         <h2>
           {{mission.title}} <span>{{ mission.sub_title | safe }}</span>
         </h2>
-        <div class="rule"></div>
+        <div class="rule" style="margin-bottom:24px;"></div>
+		
+        {% for m in mission.button %}
+  <a href="{{ m.url }}" 
+     class="button button--small button--pill">
+    {{ m.text }}
+    <span aria-hidden="true">{{ metadata.symbols.external }}</span>
+  </a>
+{% endfor %}
       </div>
       <div class="section-copy reveal">
         <p class="lead">{{ mission.intro }}</p>
